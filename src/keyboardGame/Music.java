@@ -1,4 +1,4 @@
-package keyboardGame2;
+package keyboardGame;
 
 import java.applet.Applet;
 import java.applet.AudioClip;
@@ -8,12 +8,12 @@ import java.net.URL;
 
 public class Music {
 	/*public final static File[] music={
-			new File(images.class.getResource("/music/Í¯»°Õò.wav").getPath()),
+			new File(images.class.getResource("/music/ç«¥è¯é•‡.wav").getPath()),
 			new File(images.class.getResource("/music/PLANET.wav").getPath()),
-			new File(images.class.getResource("/music/½²ÕæµÄ.wav").getPath()),
-			new File(images.class.getResource("/music/¿¨Â·Àï.wav").getPath()),
-			new File(images.class.getResource("/music/Äã´ò²»¹ıÎÒ°É.wav").getPath()),
-			new File(images.class.getResource("/music/Á¹Á¹.wav").getPath()),
+			new File(images.class.getResource("/music/è®²çœŸçš„.wav").getPath()),
+			new File(images.class.getResource("/music/å¡è·¯é‡Œ.wav").getPath()),
+			new File(images.class.getResource("/music/ä½ æ‰“ä¸è¿‡æˆ‘å§.wav").getPath()),
+			new File(images.class.getResource("/music/å‡‰å‡‰.wav").getPath()),
 			new File(images.class.getResource("/music/boom.wav").getPath())
 	};*/
 	public final static URL[] music={

@@ -1,5 +1,5 @@
-package keyboardGame2;
-//´æ´¢Í¼Æ¬
+package keyboardGame;
+//å­˜å‚¨å›¾ç‰‡
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -39,6 +39,6 @@ public class images {
 			new ImageIcon(images.class.getResource("/image/bg2.jpg")).getImage(),
 			new ImageIcon(images.class.getResource("/image/bg3.jpg")).getImage(),
 			new ImageIcon(images.class.getResource("/image/bg4.jpg")).getImage(),
-			new ImageIcon(images.class.getResource("/image/Á¹Á¹.png")).getImage()
+			new ImageIcon(images.class.getResource("/image/å‡‰å‡‰.png")).getImage()
 	};
 }

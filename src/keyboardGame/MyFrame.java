@@ -1,4 +1,4 @@
-package keyboardGame2;
+package keyboardGame;
 
 import java.applet.Applet;
 import java.applet.AudioClip;
@@ -24,35 +24,35 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class MyFrame extends JFrame implements ActionListener{
-//ÉèÖÃ´°¿Ú
+//è®¾ç½®çª—å£
 	protected final static int MyFrame_Length=1000;
 	protected final static int MyFrame_Width=1800;
-//ÉèÖÃ²Ëµ¥À¸¼°Ñ¡Ïî
+//è®¾ç½®èœå•æ åŠé€‰é¡¹
 	protected MenuBar jmb=null;
 	protected Menu jm1=null,jm2=null,jm3=null,jm4=null,jm5=null,jm6=null;
 	protected MenuItem jmi1=null,jmi2=null,jmi3=null,jmi4=null,jmi5=null,jmi6=null,jmi7=null,
 			jmi8=null,jmi9=null,jmi10=null,jmi11=null,jmi12=null,jmi13=null,
 			jmi14=null,jmi15=null,jmi16=null,jmi17=null,jmi18=null,jmi19=null;
-//´æ´¢µ±Ç°×ÖÄ¸
+//å­˜å‚¨å½“å‰å­—æ¯
 	public static ArrayList<Alphabet> apList=new ArrayList<Alphabet>();
-//³õÊ¼»¯ÊôĞÔÖµ
+//åˆå§‹åŒ–å±æ€§å€¼
 	public static boolean paintable=true;
 	public static int level=0;
 	public static int score=0;
 	public static int life=5;    
 	public static boolean bgm=false;
-//¿ØÖÆ±³¾°Í¼Æ¬
+//æ§åˆ¶èƒŒæ™¯å›¾ç‰‡
 	public static int BG=0;
-//¹¹Ôìº¯Êı
+//æ„é€ å‡½æ•°
 	public MyFrame(){
-		//ÉèÖÃ²Ëµ¥À¸
+		//è®¾ç½®èœå•æ 
 		jmb=new MenuBar();
-		jm1=new Menu("ÓÎÏ·");jm2=new Menu("ÔİÍ£/¼ÌĞø");jm3=new Menu("¼¶±ğ");jm4=new Menu("°ïÖú");jm5=new Menu("ÓÎÏ·±³¾°");jm6=new Menu("±³¾°ÒôÀÖ");
-		jmi1=new MenuItem("¿ªÊ¼ĞÂÓÎÏ·");jmi2 = new MenuItem("ÍË³ö");jmi3 = new MenuItem("ÔİÍ£");
-		jmi4 = new MenuItem("¼ÌĞø");jmi5 = new MenuItem("ÓÎÏ·ËµÃ÷");jmi6 = new MenuItem("¼¶±ğ0");
-		jmi7 = new MenuItem("¼¶±ğ2");jmi8 = new MenuItem("¼¶±ğ5");jmi9 = new MenuItem("¼¶±ğ8");
-		jmi10=new MenuItem("±³¾°Ò»");jmi11=new MenuItem("±³¾°¶ş");jmi12=new MenuItem("±³¾°Èı");jmi13=new MenuItem("±³¾°ËÄ");
-		jmi14=new MenuItem("1");jmi15=new MenuItem("2");jmi16=new MenuItem("3");jmi17=new MenuItem("4");jmi18=new MenuItem("5");jmi19=new MenuItem("¹Ø");
+		jm1=new Menu("æ¸¸æˆ");jm2=new Menu("æš‚åœ/ç»§ç»­");jm3=new Menu("çº§åˆ«");jm4=new Menu("å¸®åŠ©");jm5=new Menu("æ¸¸æˆèƒŒæ™¯");jm6=new Menu("èƒŒæ™¯éŸ³ä¹");
+		jmi1=new MenuItem("å¼€å§‹æ–°æ¸¸æˆ");jmi2 = new MenuItem("é€€å‡º");jmi3 = new MenuItem("æš‚åœ");
+		jmi4 = new MenuItem("ç»§ç»­");jmi5 = new MenuItem("æ¸¸æˆè¯´æ˜");jmi6 = new MenuItem("çº§åˆ«0");
+		jmi7 = new MenuItem("çº§åˆ«2");jmi8 = new MenuItem("çº§åˆ«5");jmi9 = new MenuItem("çº§åˆ«8");
+		jmi10=new MenuItem("èƒŒæ™¯ä¸€");jmi11=new MenuItem("èƒŒæ™¯äºŒ");jmi12=new MenuItem("èƒŒæ™¯ä¸‰");jmi13=new MenuItem("èƒŒæ™¯å››");
+		jmi14=new MenuItem("1");jmi15=new MenuItem("2");jmi16=new MenuItem("3");jmi17=new MenuItem("4");jmi18=new MenuItem("5");jmi19=new MenuItem("å…³");
 		jmb.add(jm1);jmb.add(jm2);jmb.add(jm3);jmb.add(jm4);jmb.add(jm5);jmb.add(jm6);
 		jm1.add(jmi1);jm1.add(jmi2);
 		jm2.add(jmi3);jm2.add(jmi4);
@@ -60,25 +60,25 @@ public class MyFrame extends JFrame implements ActionListener{
 		jm4.add(jmi5);
 		jm5.add(jmi10);jm5.add(jmi11);jm5.add(jmi12);jm5.add(jmi13);
 		jm6.add(jmi14);jm6.add(jmi15);jm6.add(jmi16);jm6.add(jmi17);jm6.add(jmi18);jm6.add(jmi19);
-		jm1.setFont(new Font("TimesRoman", Font.BOLD, 15));// ÉèÖÃ²Ëµ¥ÏÔÊ¾µÄ×ÖÌå
-		jm2.setFont(new Font("TimesRoman", Font.BOLD, 15));// ÉèÖÃ²Ëµ¥ÏÔÊ¾µÄ×ÖÌå
-		jm3.setFont(new Font("TimesRoman", Font.BOLD, 15));// ÉèÖÃ²Ëµ¥ÏÔÊ¾µÄ×ÖÌå
-		jm4.setFont(new Font("TimesRoman", Font.BOLD, 15));// ÉèÖÃ²Ëµ¥ÏÔÊ¾µÄ×ÖÌå
-		jm5.setFont(new Font("TimesRoman", Font.BOLD, 15));// ÉèÖÃ²Ëµ¥ÏÔÊ¾µÄ×ÖÌå
-		jm6.setFont(new Font("TimesRoman", Font.BOLD, 15));// ÉèÖÃ²Ëµ¥ÏÔÊ¾µÄ×ÖÌå
-		//ÉèÖÃ½çÃæÊôĞÔ
+		jm1.setFont(new Font("TimesRoman", Font.BOLD, 15));// è®¾ç½®èœå•æ˜¾ç¤ºçš„å­—ä½“
+		jm2.setFont(new Font("TimesRoman", Font.BOLD, 15));// è®¾ç½®èœå•æ˜¾ç¤ºçš„å­—ä½“
+		jm3.setFont(new Font("TimesRoman", Font.BOLD, 15));// è®¾ç½®èœå•æ˜¾ç¤ºçš„å­—ä½“
+		jm4.setFont(new Font("TimesRoman", Font.BOLD, 15));// è®¾ç½®èœå•æ˜¾ç¤ºçš„å­—ä½“
+		jm5.setFont(new Font("TimesRoman", Font.BOLD, 15));// è®¾ç½®èœå•æ˜¾ç¤ºçš„å­—ä½“
+		jm6.setFont(new Font("TimesRoman", Font.BOLD, 15));// è®¾ç½®èœå•æ˜¾ç¤ºçš„å­—ä½“
+		//è®¾ç½®ç•Œé¢å±æ€§
 		this.setMenuBar(jmb);
 		this.setSize(MyFrame_Width, MyFrame_Length);
 		this.setLocation(40, 10);
 		this.setTitle("keyboardGame");
-		this.addWindowListener(new WindowAdapter() { // ´°¿Ú¼àÌı¹Ø±Õ
+		this.addWindowListener(new WindowAdapter() { // çª—å£ç›‘å¬å…³é—­
 			public void windowClosing(WindowEvent e) {
 				System.exit(0);
 			}
 		});
-		this.setResizable(false);		//²»¿É¸Ä±ä´°Ìå´óĞ¡
+		this.setResizable(false);		//ä¸å¯æ”¹å˜çª—ä½“å¤§å°
 		
-		//Îª²Ëµ¥À¸Ìí¼ÓÊÂ¼ş¼àÊÓ
+		//ä¸ºèœå•æ æ·»åŠ äº‹ä»¶ç›‘è§†
 		jmi1.addActionListener(this);jmi1.setActionCommand("NewGame")   ;
 		jmi2.addActionListener(this);jmi2.setActionCommand("Exit");
 		jmi3.addActionListener(this);jmi3.setActionCommand("Stop");
@@ -99,7 +99,7 @@ public class MyFrame extends JFrame implements ActionListener{
 		jmi18.addActionListener(this);jmi18.setActionCommand("5");
 		jmi19.addActionListener(this);jmi19.setActionCommand("close");
 		
-		//Ìí¼Ó¼üÅÌÊÂ¼ş
+		//æ·»åŠ é”®ç›˜äº‹ä»¶
 		this.addKeyListener(new KeyAdapter(){
 			@Override
 			public void keyPressed (KeyEvent e){
@@ -175,11 +175,11 @@ public class MyFrame extends JFrame implements ActionListener{
 		t.start();
 	}
 	public static void main(String args[]){
-		System.out.println("ÓÎÏ·¿ªÊ¼");
+		System.out.println("æ¸¸æˆå¼€å§‹");
 		System.out.println("No Problem");
 		new MyFrame();
 	}
-//ÊÂ¼ş´¦Àí
+//äº‹ä»¶å¤„ç†
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		if(arg0.getActionCommand().equals("NewGame")){
@@ -220,14 +220,14 @@ public class MyFrame extends JFrame implements ActionListener{
 		}
 		if(arg0.getActionCommand().equals("Help")){
 			JDialog jd=new JDialog();
-			jd.setTitle("ÓÎÏ·ÌáÊ¾");
+			jd.setTitle("æ¸¸æˆæç¤º");
 			jd.setBounds(700, 300, 400, 200);
 			jd.add(new JPanel(){
 				public void paintComponent(Graphics g){
 					g.setFont(new Font("Dialog", Font.BOLD, 30));
-					g.drawString("Çë°ÑÊäÈë·¨µ÷³ÉÓ¢ÎÄ",10,40);
-					g.drawString("¿Õ¸ñ¼üÔİÍ£",10,70);
-					g.drawString("»Ø³µ¼ü¼ÌĞø",10,100);
+					g.drawString("è¯·æŠŠè¾“å…¥æ³•è°ƒæˆè‹±æ–‡",10,40);
+					g.drawString("ç©ºæ ¼é”®æš‚åœ",10,70);
+					g.drawString("å›è½¦é”®ç»§ç»­",10,100);
 				}
 			});
 			jd.setVisible(true);

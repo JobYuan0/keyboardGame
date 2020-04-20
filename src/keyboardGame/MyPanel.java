@@ -1,4 +1,4 @@
-package keyboardGame2;
+package keyboardGame;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -8,46 +8,45 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 
-
 @SuppressWarnings("serial")
 public class MyPanel extends JPanel implements Runnable{
 	public static int isAddAp=0;
 	@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		//¿ØÖÆÊÇ·ñ´´½¨ĞÂ×ÖÄ¸£¬Ã¿Ê®Æß´Î´´½¨Ò»¸ö
+		//æ§åˆ¶æ˜¯å¦åˆ›å»ºæ–°å­—æ¯ï¼Œæ¯åä¸ƒæ¬¡åˆ›å»ºä¸€ä¸ª
 		isAddAp++;			
     	if(isAddAp>=17-MyFrame.level){
     		Alphabet.build();
     		isAddAp=0;
     	}
     	
-		//ÉèÖÃ»­±ÊµÄÊôĞÔ
+		//è®¾ç½®ç”»ç¬”çš„å±æ€§
 		g.setFont(new Font("TimesRoman", Font.BOLD, 35));
 		g.setColor(Color.BLUE);
-		//»­³ö±³¾°Í¼
+		//ç”»å‡ºèƒŒæ™¯å›¾
 		g.drawImage(images.background[MyFrame.BG],0,0,MyFrame.MyFrame_Width,MyFrame.MyFrame_Length,null);
-		g.drawString("·ÖÊı£º"+MyFrame.score, (int) (MyFrame.MyFrame_Width*0.2), (int) (MyFrame.MyFrame_Length*0.04)); 
-        g.drawString("µÈ¼¶£º"+MyFrame.level, (int) (MyFrame.MyFrame_Width*0.4), (int) (MyFrame.MyFrame_Length*0.04) ); 
-        g.drawString("ÉúÃüÖµ£º"+MyFrame.life, (int) (MyFrame.MyFrame_Width*0.6), (int) (MyFrame.MyFrame_Length*0.04) );
-        //»­³öµ±Ç°µÄ×ÖÄ¸Í¼
+		g.drawString("åˆ†æ•°ï¼š"+MyFrame.score, (int) (MyFrame.MyFrame_Width*0.2), (int) (MyFrame.MyFrame_Length*0.04)); 
+        g.drawString("ç­‰çº§ï¼š"+MyFrame.level, (int) (MyFrame.MyFrame_Width*0.4), (int) (MyFrame.MyFrame_Length*0.04) ); 
+        g.drawString("ç”Ÿå‘½å€¼ï¼š"+MyFrame.life, (int) (MyFrame.MyFrame_Width*0.6), (int) (MyFrame.MyFrame_Length*0.04) );
+        //ç”»å‡ºå½“å‰çš„å­—æ¯å›¾
         for(int i=0;i<MyFrame.apList.size();i++){
     		g.drawImage(MyFrame.apList.get(i).img, MyFrame.apList.get(i).x, MyFrame.apList.get(i).y,120, 90, null);
     	}
-        //ÅĞ¶¨ÊÇ·ñËÀÍö
+        //åˆ¤å®šæ˜¯å¦æ­»äº¡
     	if(MyFrame.life<=0){
     		for(Alphabet element:MyFrame.apList){
 				element.islive=false;
 			}
     		MyFrame.apList.clear();
     		MyFrame.paintable=false;
-    		System.out.println("ÓÎÏ·½áÊø");
-    		System.out.println("ÄãµÄ·ÖÊıÎª£º  "+MyFrame.score);
+    		System.out.println("æ¸¸æˆç»“æŸ");
+    		System.out.println("ä½ çš„åˆ†æ•°ä¸ºï¼š  "+MyFrame.score);
     		g.setFont(new Font("TimesRoman", Font.BOLD, 135));
     		g.drawImage(images.background[MyFrame.BG],0,0,MyFrame.MyFrame_Width,MyFrame.MyFrame_Length,null);
     		g.drawImage(images.alphabet[26], (int)(MyFrame.MyFrame_Width*0.25),(int)(MyFrame.MyFrame_Length*0.1),
     				(int)(MyFrame.MyFrame_Width*0.5), (int)(MyFrame.MyFrame_Length*0.5), null);
-    		g.drawString("ÄãµÄ·ÖÊıÎª:"+MyFrame.score, (int)(MyFrame.MyFrame_Width*0.25), (int)(MyFrame.MyFrame_Length*0.1)+
+    		g.drawString("ä½ çš„åˆ†æ•°ä¸º:"+MyFrame.score, (int)(MyFrame.MyFrame_Width*0.25), (int)(MyFrame.MyFrame_Length*0.1)+
     				(int)(MyFrame.MyFrame_Length*0.5)+80);
     	}
 	}
@@ -58,7 +57,7 @@ public class MyPanel extends JPanel implements Runnable{
 			try {
 				Thread.sleep(50);
 			} catch (InterruptedException e) {
-				// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+				// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 				e.printStackTrace();
 			}
 			if(MyFrame.paintable){

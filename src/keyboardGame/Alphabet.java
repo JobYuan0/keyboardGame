@@ -1,4 +1,4 @@
-package keyboardGame2;
+package keyboardGame;
 
 import java.awt.Image;
 import java.util.Random;
@@ -12,7 +12,7 @@ public class Alphabet implements Runnable{
 	public boolean islive;
 	public Image img;
 	public final static Random rand=new Random();
-	public static void build(){         //¸ºÔğ´´½¨¶ÔÏó
+	public static void build(){         //è´Ÿè´£åˆ›å»ºå¯¹è±¡
 		if(MyFrame.paintable){
 			Alphabet ap=new Alphabet(rand.nextInt(MyFrame.MyFrame_Width-120),0);
 			MyFrame.apList.add(ap);
@@ -34,7 +34,7 @@ public class Alphabet implements Runnable{
 			try {
 				Thread.sleep(50);
 			} catch (InterruptedException e) {
-				// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+				// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 				e.printStackTrace();
 			}
 			if(MyFrame.paintable){
